@@ -2,7 +2,7 @@ version : "3"
 
 services:
   web:
-    image: make_is_ok
+    build: .
     cap_add:
       - SYS_PTRACE
     ports:
@@ -10,6 +10,7 @@ services:
     volumes:
       - ~/nginx/php:/root/php
       - ~/php/nginx:/root/nginx
+      - ~/wordpress:/var/www/html/wordpress
     dns:
       - 8.8.8.8
       - 114.114.114.114
@@ -26,7 +27,7 @@ services:
       - ~/mysql:/var/lib/mysql
     networks:
       - webnet
-      
+
 networks:
   webnet
 
