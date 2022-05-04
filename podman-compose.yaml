@@ -1,0 +1,34 @@
+version : "3"
+
+services:
+  web:
+    image: make_is_ok
+    cap_add:
+      - SYS_PTRACE
+    ports:
+      - "80:80"
+    volumes:
+      - ~/nginx/php:/root/php
+      - ~/php/nginx:/root/nginx
+    dns:
+      - 8.8.8.8
+      - 114.114.114.114
+    networks:
+      - webnet
+  
+  mysql:
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: this_is_password
+    volumes:
+      - ~/mysql:/var/lib/mysql
+    networks:
+      - webnet
+      
+networks:
+  webnet
+
+          
+    
