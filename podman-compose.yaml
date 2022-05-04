@@ -2,7 +2,7 @@ version : "3"
 
 services:
   web:
-    image: make_is_ok
+    build: .
     cap_add:
       - SYS_PTRACE
     ports:
