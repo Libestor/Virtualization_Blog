@@ -18,7 +18,7 @@
 1. 检查本地是否已经按安装docker或者podman以及对应的compose
 2. 下载需要的文件 prce zlib sqlite3 openssl nginx php
 3. 下载修改名字为上述名字，例如：`cp php-8.0 php`
-4. 设置mysql的密码在compose文件中
+4. 设置mysql的密码在install_local.sh文件中
 5. 然后运行podman-compose up(或者docker-compose up) **在root用户下运行,不管是不是podman**
 6. 等待亿会会（真的是亿会会）
 7. 先进入mysql容器创建wordpress的数据库：`create databases wordpress;`
