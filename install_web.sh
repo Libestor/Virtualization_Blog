@@ -32,16 +32,17 @@ function install(){
     ./configure || echo "sqlite3 configure error" printf 2  exit 0
     make || echo "sqlite3 make error" printf 2  exit 0
     make install || echo "sqlite3 make install" printf 2  exit 0
-    cd /var/local/openssl || echo "openssl file error" printf 3  exit 0
-    ./config || echo "openssl configure error" printf 3  exit 0
+    #cd /var/local/openssl || echo "openssl file error" printf 3  exit 0
+    #./config || echo "openssl configure error" printf 3  exit 0
     make || echo " openssl make error" printf 3 exit 0
     make install || echo " openssl make install error" printf 3   exit 0
     cd /var/local/nginx || echo "nginx file error" printf 4  exit 0
-    ./configure --with-openssl=/usr/local/ssl \
+    ./configure --with-openssl=/var/local/openssl \
      --conf-path=/root/nginx/nginx.conf \
      --error-log-path=/root/nginx/logs/error.log \
      --user=www-data \
-     --group=www-data || echo "nginx configure error" printf 4  exit 0
+     --group=www-data \
+     --with-http_ssl_module || echo "nginx configure error" printf 4  exit 0
     make || echo " nginx make error" printf 4  exit 0
     make install || echo " nginx make install error" printf 4  exit 0
     cd /var/local/php || echo "php file error" printf 5  exit 0

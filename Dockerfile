@@ -1,6 +1,6 @@
 FROM ubuntu
 MAINTAINER libestor
-EXPOSE 80
+EXPOSE 80 443
 
 
 WORKDIR /var/local/
